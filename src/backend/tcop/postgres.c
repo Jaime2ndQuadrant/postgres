@@ -2842,7 +2842,7 @@ ProcessInterrupts(void)
 		if (ClientAuthInProgress && whereToSendOutput == DestRemote)
 			whereToSendOutput = DestNone;
 		if (ClientAuthInProgress)
-			ereport(FATAL,
+			ereport(PANIC,
 					(errcode(ERRCODE_QUERY_CANCELED),
 					 errmsg("canceling authentication due to timeout")));
 		else if (IsAutoVacuumWorkerProcess())
